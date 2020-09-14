@@ -19,16 +19,27 @@ namespace DataQuadCore.Controllers
             _service = service;
         }
 
+        // GET: api/dataquad/GetAllRaces
         [HttpGet]
         public IActionResult GetAllRaces()
         {
             var ret = _service.sample();
             return Ok(ret);
         }
+
+        // GET: api/dataquad/Sample
         [HttpGet]
         public IActionResult Sample()
         {
             return Ok(_service.sample());
+        }
+
+        // GET: api/dataquad/sampleget/?i=3
+        // http://localhost:62045/api/dataquad/sampleget/?i=2
+        [HttpGet]
+        public IActionResult SampleGet(int i = 1)
+        {
+            return Ok(i);
         }
     }
 }
